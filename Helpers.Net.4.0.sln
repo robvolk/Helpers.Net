@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers.Net.4.0", "Src\Helpers.Net\Helpers.Net.4.0.csproj", "{B3366823-F879-4914-A016-DCE1360F45DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers.Net.Tests.4.0", "Src\Helpers.Net.Tests\Helpers.Net.Tests.4.0.csproj", "{2C910077-C8EB-4AFE-9778-151182374A34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Stage|Any CPU = Stage|Any CPU
+		Stage|x64 = Stage|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3366823-F879-4914-A016-DCE1360F45DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3366823-F879-4914-A016-DCE1360F45DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3366823-F879-4914-A016-DCE1360F45DC}.Debug|x64.ActiveCfg = Debug|x64
+		{B3366823-F879-4914-A016-DCE1360F45DC}.Debug|x64.Build.0 = Debug|x64
+		{B3366823-F879-4914-A016-DCE1360F45DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3366823-F879-4914-A016-DCE1360F45DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3366823-F879-4914-A016-DCE1360F45DC}.Release|x64.ActiveCfg = Release|x64
+		{B3366823-F879-4914-A016-DCE1360F45DC}.Release|x64.Build.0 = Release|x64
+		{B3366823-F879-4914-A016-DCE1360F45DC}.Stage|Any CPU.ActiveCfg = Stage|Any CPU
+		{B3366823-F879-4914-A016-DCE1360F45DC}.Stage|Any CPU.Build.0 = Stage|Any CPU
+		{B3366823-F879-4914-A016-DCE1360F45DC}.Stage|x64.ActiveCfg = Stage|x64
+		{B3366823-F879-4914-A016-DCE1360F45DC}.Stage|x64.Build.0 = Stage|x64
+		{2C910077-C8EB-4AFE-9778-151182374A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C910077-C8EB-4AFE-9778-151182374A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C910077-C8EB-4AFE-9778-151182374A34}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2C910077-C8EB-4AFE-9778-151182374A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C910077-C8EB-4AFE-9778-151182374A34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C910077-C8EB-4AFE-9778-151182374A34}.Release|x64.ActiveCfg = Release|Any CPU
+		{2C910077-C8EB-4AFE-9778-151182374A34}.Stage|Any CPU.ActiveCfg = Release|Any CPU
+		{2C910077-C8EB-4AFE-9778-151182374A34}.Stage|Any CPU.Build.0 = Release|Any CPU
+		{2C910077-C8EB-4AFE-9778-151182374A34}.Stage|x64.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
