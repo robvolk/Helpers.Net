@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -93,6 +94,22 @@ namespace System
         public static string TruncateHtml(this string html, int maxCharacters)
         {
             return html.TruncateHtml(maxCharacters, null);
+        }
+
+        /// <summary>
+        /// Truncates a string containing HTML to the first occurrence of a delimiter
+        /// </summary>
+        /// <param name="html">The HTML string to truncate</param>
+        /// <param name="delimiter">The delimiter</param>
+        /// <param name="comparison">The delimiter comparison type</param>
+        /// <returns></returns>
+        public static string TruncateHtmlByDelimiter(this string html, string delimiter, StringComparison comparison = StringComparison.Ordinal)
+        {
+            var index = html.IndexOf(delimiter, comparison);
+            if (index <= 0) return html;
+
+            var r = html.Substring(0, index);
+            return r.TruncateHtml(r.StripHtml().Length);
         }
 
         /// <summary>
