@@ -96,6 +96,22 @@ namespace System
         }
 
         /// <summary>
+        /// Truncates a string containing HTML to the first occurrence of a delimiter
+        /// </summary>
+        /// <param name="html">The HTML string to truncate</param>
+        /// <param name="delimiter">The delimiter</param>
+        /// <param name="comparison">The delimiter comparison type</param>
+        /// <returns></returns>
+        public static string TruncateHtmlByDelimiter(this string html, string delimiter, StringComparison comparison = StringComparison.Ordinal)
+        {
+            var index = html.IndexOf(delimiter, comparison);
+            if (index <= 0) return html;
+
+            var r = html.Substring(0, index);
+            return r.TruncateHtml(r.StripHtml().Length);
+        }
+
+        /// <summary>
         /// Strips all HTML tags from a string
         /// </summary>
         /// <param name="s"></param>

@@ -107,6 +107,27 @@ namespace Pfizer.ECFv2.Portals.PfizerWorld.Common.Test
         }
 
         [TestMethod]
+        public void TruncateHtmlTextByDelimiterTest()
+        {
+            const string testHtml = "<b>hello</b><!-- ReadMore --><div>abc</div>";
+
+            // Test for a "read more" delimiter using ordinal comparisons
+            Assert.AreEqual(testHtml.TruncateHtmlByDelimiter("<!-- ReadMore -->"), "<b>hello</b>");
+            Assert.AreNotEqual(testHtml.TruncateHtmlByDelimiter("<!-- READMORE -->"), "<b>hello</b>");
+
+            // Test for a "read more" delimiter using ordinal ignore case comparisons
+            Assert.AreEqual(testHtml.TruncateHtmlByDelimiter("<!-- ReadMore -->", StringComparison.OrdinalIgnoreCase), "<b>hello</b>");
+            Assert.AreEqual(testHtml.TruncateHtmlByDelimiter("<!-- READMORE -->", StringComparison.OrdinalIgnoreCase), "<b>hello</b>");
+
+            // Test for a delimiter that does not exists using ordinal comparison
+            Assert.AreEqual(testHtml.TruncateHtmlByDelimiter("<!-- IDontExist -->"), testHtml);
+
+            // Test truncating with a delimiter that leaves an open tag
+            Assert.AreEqual(testHtml.TruncateHtmlByDelimiter("</b>"), "<b>hello</b>");
+        }
+
+
+        [TestMethod]
         public void TruncateHtmlTest()
         {
             var html = @"<p>aaa <b>bbb</b>
