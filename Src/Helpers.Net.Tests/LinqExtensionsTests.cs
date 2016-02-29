@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HelperMethodsTests
@@ -92,11 +92,60 @@ namespace HelperMethodsTests
         }
 
         [TestMethod]
+        public void ObjectSelectTest1()
+        {
+            var sb = new StringBuilder();
+            sb.Select(it => it.Append(34));
+            Assert.AreEqual("34", sb.ToString());
+        }
+
+        [TestMethod]
+        public void ObjectSelectTest2()
+        {
+            var sb = new StringBuilder();
+            var s = sb.Select(it => it.Append(34)).ToString();
+            Assert.AreEqual("34", s);
+
+            Assert.AreEqual("34", new StringBuilder().Select(it => it.Append(34)).ToString());
+
+            var person = new Person { Address = new Address { State = "NY" } };
+            var state = person.Select(p => p.Address).Select(a => a.State);
+            Assert.AreEqual("NY", state);
+        }
+
+        [TestMethod]
+        public void AsEnumerableTest()
+        {
+            var person = new Person { Address = new Address { State = "NY" } };
+
+            var state = person.AsEnumerable().Select(p => p.Address).AsEnumerable().Select(a => a.State).Single();
+            Assert.AreEqual("NY", state);
+        }
+
+        private static Tuple<Person, Person> GetCouple()
+        {
+            var nyPerson = new Person { Address = new Address { State = "NY" } };
+            var caPerson = new Person { Address = new Address { State = "CA" } };
+
+            return Tuple.Create(nyPerson, caPerson);
+        }
+
+        [TestMethod]
+        public void TupleBindTest()
+        {
+            GetCouple().Bind((nyPerson, caPerson) =>
+            {
+                Assert.AreEqual("NY", nyPerson.Address.State);
+                Assert.AreEqual("CA", caPerson.Address.State);
+            });
+        }
+
+        [TestMethod]
         public void TryTest()
         {
             // examples for blog
             string state = null;
-            var person = new Person();
+            var person = new Person { Address = new Address { State = "NY" } };
 
             //// we'd like to do this:
             //state = person.Address.State;
@@ -115,6 +164,7 @@ namespace HelperMethodsTests
             //state = person.?Address.?State;
 
             // TODO: write unit tests
+            Assert.AreEqual("NY", state);
         }
     }
 }
